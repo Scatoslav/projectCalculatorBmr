@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="1.css">
+    <script  defer type="module" src="./js/main.js"></script>
+</head>
+<body>
+    <div class="container">
+  <button onclick="window.location.href='resipes.html'">База рецептов</button><br>    
+<p>Выберите пол</p>
+
+
+<label><input type="radio" name="pol" id="male" checked> Мужчина</label>
+<label><input type="radio" name="pol" id="female"> Женщина</label>
+<p>Ваш вес</p>
+<input type="number" id="massa" placeholder="Вес (кг)">
+<p>Ваш возраст</p>
+<input type="number" id="age" placeholder="Возраст">
+<p>Ваш рост</p>
+
+<input type="number" id="rost" placeholder="Рост (см)">
+
+<p>Выберите Активность:</p>
+<label><input type="radio" name="skill" id="niz" value="1.2" checked> Низкая (сидячий)</label><br>
+<label><input type="radio" name="skill" id="norm" value="1.375"> Средняя (3 раза в неделю)</label><br>
+<label><input type="radio" name="skill" id="max" value="1.55"> Высокая (каждый день)</label>
+
+<p>Ваша цель:</p>
+<label><input type="radio" name="goal" id="lose" value="0.85"> Похудение (-15%)</label><br>
+<label><input type="radio" name="goal" id="stay" value="1" checked> Поддержание</label><br>
+<label><input type="radio" name="goal" id="gain" value="1.15"> Набор массы (+15%)</label>
+<br><br>
+
+
+
+<button id="rass">Рассчитать</button>
+<div id="result"></div>
+<hr>
+<h3>Сгенерировать меню под ваши цели</h3>
+<p>Выберите на какой срок</p>
+<label><input type="radio" name="time" id="Day" checked> День</label>
+<label><input type="radio" name="time" id="Ned"> Неделя</label>
+<button id="btn">Сгенерировать меню</button>
+<!-- Кнопки PDF -->
+<button onclick="saveResultsPdf()" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); margin-top: 10px;">
+    📄 Сохранить результаты в PDF
+</button>
+<button onclick="saveMenuPdf()" style="background: linear-gradient(135deg, #17a2b8 0%, #00bcd4 100%); margin-top: 10px;">
+    🍽️ Сохранить меню в PDF
+</button>
+<button onclick="saveFullPdf()" style="background: linear-gradient(135deg, #6610f2 0%, #6f42c1 100%); margin-top: 10px;">
+    📑 Полный отчет в PDF
+</button>
+<button onclick="window.clearAllData()" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%); margin-top: 10px;">
+    🗑️ Очистить все сохраненные данные
+</button>
+
+
+
+    </div>
+
+    
+</body>
+</html>

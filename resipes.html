@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>База рецептов</title>
+    <link rel="stylesheet" href="1.css">  
+    <script defer type="module" src="./js/resipes.js"></script>
+</head>
+<body>
+    <div id="container-res">
+        <button onclick="window.location.href='1.html'">← Назад к калькулятору</button><br>
+        <h3>🍽️ База рецептов</h3>
+        <p>Показывать только:</p>
+        <select id="recipe-filter">
+            <option value="all">📋 Все рецепты</option>
+            <option value="breakfast">🍳 Завтраки</option>
+            <option value="lunch">🍲 Обеды</option>
+            <option value="dinner">🍽️ Ужины</option>
+            <option value="snack">🍎 Перекусы</option>
+        </select>
+        <hr>
+        <div id="recipes-list"></div>
+    </div>
+</body>
+</html>
