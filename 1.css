@@ -1,472 +1,295 @@
+:root {
+    --bg: #0f172a;
+    --bg-soft: #111827;
+    --surface: #ffffff;
+    --surface-soft: #f8fafc;
+    --text: #0f172a;
+    --muted: #64748b;
+    --accent: #6366f1;
+    --accent-2: #8b5cf6;
+    --ok: #16a34a;
+    --warn: #dc2626;
+    --shadow: 0 20px 45px rgba(15, 23, 42, 0.18);
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --radius-sm: 10px;
+}
+
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: url("./Screenshots/Снимок\ экрана\ 2026-04-01\ 103148.png");
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text);
     min-height: 100vh;
-    padding: 20px;
-
+    padding: 24px;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.25), transparent 35%),
+        radial-gradient(circle at 80% 10%, rgba(99, 102, 241, 0.25), transparent 30%),
+        linear-gradient(160deg, #0b1223 0%, #111827 100%);
 }
 
-.container {
-    max-width: 800px;
+.container,
+#container-res {
+    width: min(900px, 100%);
     margin: 0 auto;
-    background-color: #bbb;
-    background-size: cover;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    overflow: hidden;
-    animation: slideIn 0.5s ease-out;
-    padding: 40px;
-    color: white;
-    
-
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    padding: 28px;
+    border: 1px solid rgba(148, 163, 184, 0.2);
 }
 
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Заголовки */
-h3 {
-    color: #333;
-    font-size: 1.5rem;
-    margin: 20px 0 15px 0;
-    padding-bottom: 10px;
-    border-bottom: 3px solid #667eea;
-    display: inline-block;
-}
-
-/* Секции */
-.container > div {
-    padding: 25px 30px;
-    border-bottom: 1px solid #eee;
-}
-
-/* Радио кнопки и метки */
-label {
-    display: inline-block;
-    margin: 10px 15px 10px 0;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    padding: 8px 15px;
-    border-radius: 25px;
-    background:rgb(41, 40, 40);
+p {
+    margin: 10px 0 8px;
+    color: #334155;
     font-weight: 500;
 }
 
+h3,
+h4 {
+    color: #1e293b;
+    margin: 14px 0;
+}
+
+h3 {
+    font-size: 1.3rem;
+    display: inline-block;
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 6px;
+}
+
+label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 8px 10px 8px 0;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #312e81;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    font-size: 0.95rem;
+}
+
 label:hover {
+    transform: translateY(-1px);
+    border-color: #c7d2fe;
     background: #e0e7ff;
-    transform: translateY(-2px);
 }
 
 input[type="radio"] {
-    margin-right: 8px;
-    cursor: pointer;
-    accent-color: #667eea;
+    accent-color: var(--accent);
 }
 
-/* Поля ввода */
-input[type="number"], 
-input[type="text"] {
+input[type="number"],
+input[type="text"],
+select {
     width: 100%;
-    padding: 12px 15px;
-    margin: 10px 0;
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    font-family: inherit;
+    margin: 8px 0 12px;
+    padding: 12px 14px;
+    font-size: 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: var(--radius-sm);
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-input[type="number"]:focus,
-input[type="text"]:focus {
+input:focus,
+select:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
 }
 
-/* Кнопки */
 button {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
     border: none;
-    padding: 12px 30px;
-    font-size: 16px;
+    border-radius: 12px;
+    padding: 10px 16px;
+    margin: 8px 8px 8px 0;
+    color: #fff;
     font-weight: 600;
-    border-radius: 25px;
+    font-size: 0.95rem;
     cursor: pointer;
-    transition: all 0.3s ease;
-    margin: 10px 10px 10px 0;
-    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+    box-shadow: 0 8px 18px rgba(99, 102, 241, 0.28);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
 }
 
 button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(99, 102, 241, 0.35);
+    filter: brightness(1.03);
 }
 
 button:active {
     transform: translateY(0);
 }
 
-/* Результат */
 #result {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    border-radius: 15px;
-    padding: 20px;
-    margin: 20px 0;
-    animation: fadeIn 0.5s ease-out;
+    margin-top: 16px;
+    padding: 18px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(145deg, #f8fafc, #eef2ff);
+    border: 1px solid #dbeafe;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-#result h3 {
-    color: #667eea;
-    margin-top: 0;
-    border-bottom-color: #764ba2;
-}
-
-#result p {
-    margin: 10px 0;
-    line-height: 1.6;
-    color: #333;
+#result p,
+#result li {
+    color: #1f2937;
 }
 
 #result ul {
     list-style: none;
-    padding-left: 0;
-    margin: 15px 0;
+    margin: 10px 0;
 }
 
 #result li {
     padding: 8px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-    display: flex;
-    align-items: center;
+    border-bottom: 1px dashed #cbd5e1;
 }
 
 #result li:last-child {
     border-bottom: none;
 }
 
-#result small {
-    color: #666;
-    font-size: 12px;
-    display: block;
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid rgba(0,0,0,0.1);
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #cbd5e1, transparent);
+    margin: 18px 0;
 }
 
-/* Меню */
-.menu-container {
-    margin-top: 30px;
+.menu-day,
+.menu-week {
+    margin-top: 16px;
+    padding: 18px;
+    border-radius: var(--radius-md);
+    background: var(--surface-soft);
+    border: 1px solid #e2e8f0;
 }
 
-.menu-day {
-    background: white;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-    padding: 30px;
+.menu-summary,
+.week-summary {
+    background: #eef2ff;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    padding: 12px;
+    margin: 10px 0 14px;
 }
 
-.menu-day:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-}
-
-.menu-day h4 {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 15px 20px;
-    margin: 0;
-    font-size: 1.2rem;
-}
-
-.menu-meal {
-    padding: 15px 20px;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.menu-meal:last-child {
-    border-bottom: none;
-}
-
-.meal-title {
-    font-weight: bold;
-    color: #667eea;
-    margin-bottom: 10px;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-}
-
-.meal-title::before {
-    content: "🍽️";
-    margin-right: 8px;
-}
-
-.meal-items {
-    padding-left: 30px;
-}
-
-.meal-item {
-    margin: 8px 0;
-    padding: 8px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-}
-
-.meal-item:hover {
-    background: #e9ecef;
-    transform: translateX(5px);
-}
-
-.meal-name {
-    font-weight: 500;
-    color: #333;
-}
-
-.meal-calories {
-    color: #667eea;
-    font-weight: bold;
-    margin-left: 10px;
-}
-
-.meal-nutrients {
-    font-size: 12px;
-    color: #666;
-    margin-top: 5px;
-}
-
-.menu-summary {
-    background: #f8f9fa;
-    padding: 15px 20px;
-    border-top: 2px solid #e0e0e0;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+.meals-list,
+.day-meals {
+    display: grid;
     gap: 10px;
 }
 
-.summary-item {
-    text-align: center;
-    flex: 1;
+.meal,
+.week-day {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px;
+    color: #1f2937;
 }
 
-.summary-value {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #667eea;
+.day-header {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #312e81;
 }
 
-.summary-label {
-    font-size: 12px;
-    color: #666;
-    margin-top: 5px;
+.recommendation,
+.day-recommendation {
+    margin-top: 8px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    color: #9a3412;
 }
 
-/* Адаптивность */
-@media (max-width: 768px) {
-    .container {
-        margin: 10px;
-        border-radius: 15px;
-    }
-    
-    .container > div {
-        padding: 20px;
-    }
-    
-    label {
-        display: block;
-        margin: 8px 0;
-    }
-    
-    .menu-day h4 {
-        font-size: 1rem;
-        padding: 12px 15px;
-    }
-    
-    .menu-meal {
-        padding: 12px 15px;
-    }
-    
-    .meal-items {
-        padding-left: 15px;
-    }
-    
-    .summary-item {
-        min-width: 80px;
-    }
+#recipes-list {
+    margin-top: 14px;
+    display: grid;
+    gap: 12px;
+    background: transparent;
+    padding: 0;
 }
 
-/* Стили для чекбоксов и радио */
-input[type="radio"]:checked + label {
-    background: #667eea;
-    color: white;
+.recipe-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 14px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
 }
 
-/* Анимация для загрузки */
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
+.recipe-card h3 {
+    margin-top: 0;
+    font-size: 1.05rem;
+    border-bottom: none;
 }
 
-button:active {
-    animation: pulse 0.3s ease;
+.recipe-card p {
+    margin: 6px 0;
+    color: #334155;
+    font-weight: 400;
 }
 
-/* Стили для скроллбара */
+.alert {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.success {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+    border-radius: 10px;
+    padding: 10px;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #e2e8f0;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 5px;
+    background: linear-gradient(180deg, var(--accent), var(--accent-2));
+    border-radius: 999px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+@media (max-width: 768px) {
+    body {
+        padding: 12px;
+    }
+
+    .container,
+    #container-res {
+        padding: 16px;
+        border-radius: 14px;
+    }
+
+    label {
+        display: flex;
+        width: 100%;
+        margin-right: 0;
+    }
+
+    button {
+        width: 100%;
+        margin-right: 0;
+    }
 }
-
-/* Улучшенные плейсхолдеры */
-input::placeholder {
-    color: #bbb;
-    font-style: italic;
-}
-
-/* Разделитель */
-hr {
-    margin: 20px 0;
-    border: none;
-    height: 2px;
-    background: linear-gradient(to right, transparent, #667eea, #764ba2, transparent);
-}
-
-/* Стиль для предупреждений */
-.alert {
-    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
-    color: white;
-    padding: 12px;
-    border-radius: 10px;
-    margin: 10px 0;
-    animation: fadeIn 0.3s ease-out;
-}
-
-/* Стиль для успешных сообщений */
-.success {
-    background: linear-gradient(135deg, #51cf66 0%, #40c057 100%);
-    color: white;
-    padding: 12px;
-    border-radius: 10px;
-    margin: 10px 0;
-}
-/* Основные контейнеры */
-.menu-day{
-    color: #333;
- }           /* Контейнер дневного меню */
-.menu-week { }          /* Контейнер недельного меню */
-
-/* Сводка по калориям */
-.menu-summary { }       /* Блок с итоговыми калориями и БЖУ */
-.week-target { }        /* Целевая калорийность в недельном меню */
-
-/* Список приемов пищи */
-.meals-list { }         /* Общий контейнер для всех приемов */
-.meal { }               /* Общий класс для каждого приема */
-.meal.breakfast { }     /* Завтрак */
-.meal.lunch { }         /* Обед */
-.meal.dinner { }        /* Ужин */
-.meal.snack { }         /* Перекус */
-.meal-target { }        /* Целевая калорийность для приема */
-
-/* Недельное меню */
-.week-day { }           /* Один день недели */
-.day-header {
-    color: #333;
-    size: 30px;
-}         /* Заголовок дня (Понедельник, и т.д.) */
-.deviation-good { }     /* Отклонение до 100 ккал */
-.deviation-medium { }   /* Отклонение 100-200 ккал */
-.deviation-bad { }      /* Отклонение более 200 ккал */
-.day-meals { }          /* Контейнер для блюд дня */
-.day-meal { }           /* Общий класс для блюда в недельном меню */
-.day-meal.breakfast { } /* Завтрак в недельном */
-.day-meal.lunch { }     /* Обед в недельном */
-.day-meal.dinner { }    /* Ужин в недельном */
-.day-meal.snack { }     /* Перекус в недельном */
-
-/* Рекомендации */
-.recommendation { }     /* Блок рекомендации в дневном меню */
-.day-recommendation { } /* Блок рекомендации в недельном меню */
-
-/* Итоги недели */
-.week-summary { }       /* Блок с итогами недели */
-
-/* Кнопки */
-.week-buttons { }       /* Контейнер для кнопок в недельном меню */
-.generate-btn { }       /* Кнопка генерации нового меню */
-.scroll-btn { } 
-#recipes-list{
-    background-color: #333;
-}    
-#container-res{
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #bbb;
-    background-size: cover;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    overflow: hidden;
-    animation: slideIn 0.5s ease-out;
-    padding: 40px;
-    color: white;
-}   
-#recipes-list{
-    background: white;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-    padding: 30px;
-    color: #333;
-
-} 

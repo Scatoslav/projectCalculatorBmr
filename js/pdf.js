@@ -4,7 +4,7 @@ export function printToPdf(element, title = 'Отчет') {
         return;
     }
     
-    // Создаем копию элемента
+    
     const clone = element.cloneNode(true);
     
     // Открываем окно для печати
